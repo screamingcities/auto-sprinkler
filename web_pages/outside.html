@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Stewart Outside Control</title>
+<link href="Jarvis_Outside.css" rel="stylesheet" type="text/css" />
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+var FRONT_YARD = 'P9_14'
+var FRONT_PIC = 'frontYardPic'
+var BACK_YARD = 'USR1'
+
+var socketcheck = io.connect('192.168.1.133:8080');
+  socketcheck.on('front_on', function (data) {
+    document.getElementById('frontYardPic').style.visibility="visible";   
+  });
+  
+ socketcheck.on('back_on', function (data) {
+    document.getElementById('backYardPic').style.visibility="visible";   
+  });
+
+function front_pic_on(){
+ document.getElementById('frontYardPic').style.visibility="visible";   
+ 
+}
+
+function front_pic_off(){
+document.getElementById('frontYardPic').style.visibility="hidden";    
+}
+
+function back_pic_on(){
+ document.getElementById('backYardPic').style.visibility="visible";   
+}
+
+function back_pic_off(){
+document.getElementById('backYardPic').style.visibility="hidden";    
+}
+
+function water_on(data){
+    var socket = io.connect('192.168.1.133:8080');
+ 	socket.emit('water on', data);
+	//alert('Water Turning On!');
+	
+
+}
+
+function water_off(data){
+ 	var socket = io.connect('192.168.1.133:8080');
+ 	socket.emit('water off', data);
+ //	alert('Water Turning off!');
+	
+}
+
+function on(){
+ water_on();
+ pic_on();
+}
+
+</script>
+</head>
+
+<body class = "Jarvis_Outside">
+
+<div id="myContent">
+<div id="headerBar">
+<div id="titleBox">
+  <h1>Emerald Avenue Outdoor <p>
+  Control System</h1>
+  </div>
+</div>
+<div id="bodyBox">
+<div id="frontYard">
+Front Yard Irrigation <p>
+<button onclick='water_on(FRONT_YARD); front_pic_on();' type="button">Water On</button> <p>
+<button onclick='water_off(FRONT_YARD); front_pic_off(frontYardPic);' type="button">Water Off</button>
+</div>
+<div id="frontYardPic"><img src="rainbird1.gif" width="125" height="100" /> </div>
+<div id="backYard">
+Back Yard Irrigation <p>
+<button onclick='water_on(BACK_YARD); back_pic_on();' type="button">Water On</button> <p>
+<button onclick='water_off(BACK_YARD); back_pic_off();' type="button">Water Off</button>
+</div>
+<div id="backYardPic"><img src="rainbird1.gif" width="125" height="100" /></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+font: 100% Arial, Helvetica, sans-serif;
+background: #B1B3B3;
+margin: 0;
+padding:0;
+text-align: center;
+}
+
+.Jarvis_Outside #myContent {
+background: #FFFFFF;
+width: 60em;
+margin: 0 auto;
+text-align:left;
+}
+
+.Jarvis_Outside #bodyBox {
+float: left;
+clear:both;
+background: #FFFFFF;
+width: 60em;
+padding-bottom: 5px;
+
+
+}
+
+.Jarvis_Outside #headerBar {
+background: #FFFFFF;
+background-image:url(yard_castle.jpg);
+background-repeat: no-repeat;
+background-position:right;
+text-align:left;
+text-indent: 50px;
+width: 60em;
+height:200px;
+margin-top: 10px;
+}
+
+.Jarvis_Outside #titleBox {
+padding-top:10px;    
+    }
+
+.Jarvis_Outside #titleBox p {
+margin:0px;
+padding:0px;
+    }
+
+
+.Jarvis_Outside #frontYard {
+margin:10px 0 0 0;
+text-align:center;
+float:left;
+width: 15em;
+background:#FFFFFF;
+}
+
+.Jarvis_Outside #frontYardPic {
+margin:20px 0 0 0;
+text-align:center;
+float:left;
+width: 15em;
+background:#FFFFFF;
+visibility:hidden;
+}
+
+.Jarvis_Outside #backYard {
+margin:10px 0 0 0;
+text-align:center;
+float:left;
+width: 15em;
+background:#FFFFFF;
+
+}
+
+.Jarvis_Outside #backYardPic {
+margin:20px 0 0 0;
+text-align:center;
+float:left;
+width: 15em;
+background:#FFFFFF;
+visibility:hidden;
+}
