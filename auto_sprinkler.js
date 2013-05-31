@@ -11,6 +11,7 @@ var MY_KEY = '84791c282f61fa15';
 
 //Watering Constants
 var WATER_START = 0;
+var WATER_MIN_TEMP = 50;
 var TEMP_AVE = 60;
 var HUMIDITY_START = 100;
 var RAIN_REDUCTION = 30;
@@ -80,6 +81,10 @@ db.each("SELECT * FROM sprinkler_times ORDER BY ID DESC LIMIT 1", function(err, 
     }
     else if (weather.getTRainInchChance() > 49) {
         waterTime = waterTime - Math.round(TOMORROW_HIGH_REDUCTION * weather.getTRainInch());
+    }
+    
+    if (weather.getHighTemp() < WATER_MIN_TEMP) {
+     waterTime = 0;   
     }
     console.log('Tomorrow Rain: ' + waterTime);
 
